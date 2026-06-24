@@ -1,0 +1,133 @@
+/* =========================================
+   Global / Body — viewport centering
+   ========================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  /* Centers the card wrapper horizontally and vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #eef1f5; /* fallback color while the image loads */
+  background-image: url("background.webp");
+  background-size: cover;       /* fills the whole screen, no stretching distortion */
+  background-position: center;  /* keeps the image centered */
+  background-repeat: no-repeat; /* stops it from tiling */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   Card Layout & Box Model
+   ========================================= */
+.profile-card {
+  width: 100%;
+  max-width: 320px;
+
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* deeper shadow so the card lifts off a busy photo */
+
+  padding: 32px 24px;
+
+  /* Center-align all nested text/list/structural content */
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   Avatar — circular masking
+   ========================================= */
+.profile-card__avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  margin: 0 0 20px 0;
+  border: 3px solid #eef1f5;
+}
+
+/* =========================================
+   Typography & Visual Hierarchy
+   ========================================= */
+.profile-card__name {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.profile-card__bio {
+  margin: 0 0 24px 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666666;
+}
+
+/* =========================================
+   Social Stats — flexbox row, no bullets
+   ========================================= */
+.profile-card__stats {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+
+  list-style: none;
+  margin: 0 0 28px 0;
+  padding: 0;
+  width: 100%;
+}
+
+.profile-card__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card__stat-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.profile-card__stat-label {
+  font-size: 0.8rem;
+  color: #888888;
+  margin-top: 2px;
+}
+
+/* =========================================
+   Follow Button — visual polish + interactivity
+   ========================================= */
+.profile-card__follow-btn {
+  width: 100%;
+  padding: 12px 0;
+
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.profile-card__follow-btn:hover {
+  background-color: #2563eb;
+}
+
+.profile-card__follow-btn:active {
+  opacity: 0.85;
+}
